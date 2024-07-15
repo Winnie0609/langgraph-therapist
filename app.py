@@ -14,10 +14,6 @@ def main():
                 "role": "ai",
                 "content": "Is there something you want to discuss or need help with lately?",
             },
-            {
-                "role": "user",
-                "content": "My boyfriend got angry and punched a hole in the door. ",
-            },
         ]
 
     for msg in st.session_state.messages:
