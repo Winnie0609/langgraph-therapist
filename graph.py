@@ -34,7 +34,7 @@ graph = workflow.compile()
 #     {"messages": conversation},
 #     {"recursion_limit": 100},
 # )
-# print(r)
+# # print(r)
 
 # for s in graph.stream(
 #     # {"messages": messages},
@@ -42,20 +42,20 @@ graph = workflow.compile()
 #     {"recursion_limit": 100},
 # ):
 #     if "__end__" not in s:
-#         print(s)
-#         print("----")
+# #         print(s)
+# #         print("----")
 
 
 def invoke_agent(conversation):
-    print("----------------------------------")
-    print("[invoke_agent conversation]", conversation)
+    # print("----------------------------------")
+    # print("[invoke_agent conversation]", conversation)
 
     response = graph.invoke(
         {"messages": conversation},
         {"recursion_limit": 100},
     )
-    print("**********************************")
-    print("[response]", response)
+    # print("**********************************")
+    # print("[response]", response)
     return response
 
     # return sample_output

@@ -18,7 +18,7 @@ from typing import Dict
 
 
 def log_payload_step(state):
-    print(f"[log_payload_step]", state)
+    # print(f"[log_payload_step]", state)
     return state
 
 
@@ -65,16 +65,16 @@ supervisor_prompt = ChatPromptTemplate.from_messages(
 
 
 def supervisor_chain(state):
-    print("[supervisor_chain state]", state)
-    print("------")
+    # print("[supervisor_chain state]", state)
+    # print("------")
     agent = (
         supervisor_prompt
-        | log_payload_step
+        # | log_payload_step
         | llm.bind_functions(functions=[supervisor_function_def], function_call="route")
         | JsonOutputFunctionsParser()
     )
     response = agent.invoke(state)
-    print("[supervisor_chain response]", response)
+    # print("[supervisor_chain response]", response)
 
     return response
 
@@ -110,7 +110,7 @@ def stage_evaluator_node(state):
 
     agent = (
         stage_prompt
-        | log_payload_step
+        # | log_payload_step
         | llm.bind_functions(
             functions=[stage_function_def], function_call="evaluate_stage"
         )
@@ -118,7 +118,7 @@ def stage_evaluator_node(state):
     )
 
     response = agent.invoke(state)
-    print("[stage_evaluator_node response]", response)
+    # print("[stage_evaluator_node response]", response)
 
     return {
         "messages": [HumanMessage(content=str(response), name="stage_evaluator")],
@@ -128,22 +128,22 @@ def stage_evaluator_node(state):
 
 # stage agent
 def technique_selector_node(state):
-    print("[technique_selector_node state]", state)
-    print("******************************************")
+    # print("[technique_selector_node state]", state)
+    # print("******************************************")
 
     current_stage = state["current_stage"]
-    print("[technique_selector_node current_stage]", current_stage)
-    print("******************************************")
+    # print("[technique_selector_node current_stage]", current_stage)
+    # print("******************************************")
 
     techniques_options = [item["name"] for item in techniques_data[current_stage]]
 
-    print("[technique_selector_node techniques_options]", techniques_options)
-    print("******************************************")
+    # print("[technique_selector_node techniques_options]", techniques_options)
+    # print("******************************************")
 
     techniques_detail = techniques_data[current_stage]
 
     # print("[technique_selector_node techniques_detail]", techniques_detail)
-    print("******************************************")
+    # print("******************************************")
 
     is_suitable = state.get("is_suitable")
 
@@ -207,7 +207,7 @@ def technique_selector_node(state):
 
     agent = (
         technique_prompt
-        | log_payload_step
+        # | log_payload_step
         | llm.bind_functions(
             functions=[technique_function_def], function_call="select_technique"
         )
@@ -215,7 +215,7 @@ def technique_selector_node(state):
     )
 
     response = agent.invoke(state)
-    print("[technique_selector_node response]", response)
+    # print("[technique_selector_node response]", response)
 
     return {
         "messages": [HumanMessage(content=str(response), name="technique_selector")],
@@ -227,8 +227,8 @@ def technique_selector_node(state):
 
 # reply agent
 def reply_bot_node(state):
-    print("[reply_node state]", state)
-    print("******************************************")
+    # print("[reply_node state]", state)
+    # print("******************************************")
 
     current_stage = state["current_stage"]
     selected_technique = state["selected_technique"]
@@ -287,13 +287,13 @@ def reply_bot_node(state):
 
     agent = (
         reply_prompt
-        | log_payload_step
+        # | log_payload_step
         | llm.bind_functions(functions=[reply_function_def], function_call="reply_bot")
         | JsonOutputFunctionsParser()
     )
 
     response = agent.invoke(state)  # 是不是送 conversation 就好？
-    print("[reply_node response]", response)
+    # print("[reply_node response]", response)
 
     return {
         "messages": [HumanMessage(content=str(response), name="reply_bot")],
@@ -302,8 +302,8 @@ def reply_bot_node(state):
 
 
 def reviewer_node(state):
-    print("[reply_node state]", state)
-    print("******************************************")
+    # print("[reply_node state]", state)
+    # print("******************************************")
 
     reviewer_function_def = {
         "name": "reviewer",
@@ -334,7 +334,7 @@ def reviewer_node(state):
 
     agent = (
         review_prompt
-        | log_payload_step
+        # | log_payload_step
         | llm.bind_functions(
             functions=[reviewer_function_def], function_call="reviewer"
         )
@@ -342,7 +342,7 @@ def reviewer_node(state):
     )
 
     response = agent.invoke(state)
-    print("[stage_evaluator_node response]", response)
+    # print("[stage_evaluator_node response]", response)
 
     return {
         "messages": [HumanMessage(content=str(response), name="reviewer")],

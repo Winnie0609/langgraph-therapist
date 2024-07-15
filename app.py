@@ -30,16 +30,16 @@ def main():
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
 
-        print("----------------------------------")
-        print("conversation", st.session_state["messages"])
+        # print("----------------------------------")
+        # print("conversation", st.session_state["messages"])
         conversation_without_info = [
             {k: v for k, v in msg.items() if k != "info"}
             for msg in st.session_state["messages"]
         ]
         response = invoke_agent(conversation_without_info)
-        print("----------------------------------")
+        # print("----------------------------------")
         reply = response["reply"]
-        # print("[response from agent]", reply)
+        # # print("[response from agent]", reply)
         selected_info = [
             "current_stage",
             "selected_technique",
@@ -51,12 +51,12 @@ def main():
         st.session_state.messages.append({"role": "ai", "content": reply, "info": info})
         st.chat_message("ai").write(reply)
 
-        print("current [info]", info)
+        # print("current [info]", info)
         with st.expander("More info"):
             st.json(info)
 
-        print("----------------------------------")
-        print("[updated conversation]", st.session_state.messages)
+        # print("----------------------------------")
+        # print("[updated conversation]", st.session_state.messages)
 
 
 if __name__ == "__main__":
