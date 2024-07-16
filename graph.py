@@ -1,21 +1,20 @@
 from langgraph.graph import END, StateGraph, START
 from state import AgentState
-from model import get_open_ai_model
 from tools import (
     members,
     supervisor_chain,
     stage_evaluator_node,
-    technique_selector_node,
+    intention_decider_node,
+    skill_selector_node,
     reply_bot_node,
     reviewer_node,
 )
 
-llm = get_open_ai_model(temperature=0, model="gpt-4o")
-
 workflow = StateGraph(AgentState)
 workflow.add_node("supervisor", supervisor_chain)
 workflow.add_node("stage_evaluator", stage_evaluator_node)
-workflow.add_node("technique_selector", technique_selector_node)
+workflow.add_node("intention_decider", intention_decider_node)
+workflow.add_node("skill_selector", skill_selector_node)
 workflow.add_node("reviewer", reviewer_node)
 workflow.add_node("reply_bot", reply_bot_node)
 
@@ -46,8 +45,8 @@ graph = workflow.compile()
 
 
 def invoke_agent(conversation):
-    # print("----------------------------------")
-    # print("[invoke_agent conversation]", conversation)
+    print("[invoke_agent conversation]", conversation)
+    print("----------------------------------")
 
     response = graph.invoke(
         {"messages": conversation},
@@ -56,5 +55,3 @@ def invoke_agent(conversation):
     # print("**********************************")
     # print("[response]", response)
     return response
-
-    # return sample_output

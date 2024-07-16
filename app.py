@@ -33,12 +33,14 @@ def main():
             for msg in st.session_state["messages"]
         ]
         response = invoke_agent(conversation_without_info)
-        # print("----------------------------------")
+        print("[response from agent]", response)
+        print("----------------------------------")
+        # reply = response["suggest_reply"]
         reply = response["reply"]
-        # # print("[response from agent]", reply)
         selected_info = [
             "current_stage",
-            "selected_technique",
+            "selected_intention",
+            "selected_skill",
             "suggestion",
             "feedback",
         ]

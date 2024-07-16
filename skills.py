@@ -1,7 +1,7 @@
-techniques_data = {
-    "exploration": [
-        {
-            "name": "structure_of_the_scene",
+skill_data = {
+    "exploration": {
+        "structure_of_the_scene": {
+            "name": "structure of the scene",
             "definition": "Defining the nature, limitations, and goals of the helping relationship.",
             "when_to_use": "At the beginning of the counseling session, when the client expresses concerns or uncertainties.",
             "examples": [
@@ -12,7 +12,7 @@ techniques_data = {
                 {"counselor": "We have 50 minutes to talk today."},
             ],
         },
-        {
+        "focusing": {
             "name": "focusing",
             "definition": "The counselor listens attentively to the client's verbal expressions and non-verbal cues, making the client feel valued and accepted.",
             "when_to_use": "When the client starts describing important experiences or emotions.",
@@ -23,8 +23,8 @@ techniques_data = {
                 }
             ],
         },
-        {
-            "name": "minimal_encouragement",
+        "minimal_encouragement": {
+            "name": "minimal encouragement",
             "definition": "Composed of simple sentences expressing agreement, recognition, or understanding, acting as a form of encouragement.",
             "when_to_use": "When the client hesitates or pauses.",
             "examples": [
@@ -38,7 +38,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "silence": {
             "name": "silence",
             "definition": "When the counselor (or client) remains silent, or there is a pause exceeding five seconds in the middle of a statement.",
             "when_to_use": "When the client needs time to organize their thoughts or express emotions.",
@@ -49,8 +49,8 @@ techniques_data = {
                 }
             ],
         },
-        {
-            "name": "agreement_and_reassurance",
+        "agreement_and_reassurance": {
+            "name": "agreement and reassurance",
             "definition": "Providing support, agreement, or reinforcement of the client's emotions or views.",
             "when_to_use": "When the client expresses concerns, worries, or needs support.",
             "examples": [
@@ -76,8 +76,8 @@ techniques_data = {
                 },
             ],
         },
-        {
-            "name": "non_verbal_cues",
+        "non_verbal_cues": {
+            "name": "non-verbal cues",
             "definition": "Proposing or inquiring about the client's non-verbal behaviors, such as eye contact, facial expressions, gestures, body posture, etc.",
             "when_to_use": "When the client expresses vague or ambiguous statements.",
             "examples": [
@@ -91,7 +91,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "catalysis": {
             "name": "catalysis",
             "definition": "Listening to the client's talk, accepting their emotions, and helping them continue talking.",
             "when_to_use": "When the client expresses hesitation or the topic stalls.",
@@ -102,7 +102,7 @@ techniques_data = {
                 }
             ],
         },
-        {
+        "others": {
             "name": "others",
             "definition": "Includes statements unrelated to the client, such as small talk or chit-chat.",
             "when_to_use": "At the beginning or end of counseling to build rapport.",
@@ -114,8 +114,8 @@ techniques_data = {
                 {"client": "See you next week.", "counselor": "Goodbye."},
             ],
         },
-        {
-            "name": "closed_ended_questions",
+        "closed_ended_questions": {
+            "name": "closed-ended questions",
             "definition": "A way to gather information by inviting the client to give a simple one-word or 'yes' or 'no' answer.",
             "when_to_use": "To confirm or verify specific information.",
             "examples": [
@@ -134,8 +134,8 @@ techniques_data = {
                 {"counselor": "Is your work going well?"},
             ],
         },
-        {
-            "name": "open_ended_questions",
+        "open_ended_questions": {
+            "name": "open-ended questions",
             "definition": "A way of clarifying feelings or exploring situations without deliberately limiting the client's response to 'yes' or 'no' or a few words.",
             "when_to_use": "When more information or a deeper understanding of the client's feelings is needed.",
             "examples": [
@@ -149,7 +149,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "restatement": {
             "name": "restatement",
             "definition": "Simply restating or summarizing the client's message, letting the client know they are heard and understood.",
             "when_to_use": "When the client expresses lengthy or complex content.",
@@ -168,7 +168,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "summarization": {
             "name": "summarization",
             "definition": "Briefly summarizing the key points of a longer conversation.",
             "when_to_use": "When the client is speaking at length, the counselor needs to summarize to keep the focus.",
@@ -183,8 +183,8 @@ techniques_data = {
                 },
             ],
         },
-        {
-            "name": "emotional_reflection",
+        "emotional_reflection": {
+            "name": "emotional reflection",
             "definition": "Verbally expressing the client's emotions, allowing them to re-experience their feelings.",
             "when_to_use": "When the client expresses strong emotions.",
             "examples": [
@@ -206,7 +206,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "inquiry": {
             "name": "inquiry",
             "definition": "Asking a series of questions to learn about the client and their issues, through a back-and-forth exploration.",
             "when_to_use": "When the client's statements are unclear or lack detail.",
@@ -225,7 +225,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "normalization": {
             "name": "normalization",
             "definition": "Helping the client view their troubles as expected life challenges or accept their emotional reactions as normal.",
             "when_to_use": "When the client expresses overly subjective views or self-denial.",
@@ -240,7 +240,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "focusing": {
             "name": "focusing",
             "definition": "Bringing off-topic conversations back to the main topic or choosing one of multiple derived topics for detailed discussion.",
             "when_to_use": "When the client's conversation strays from the main topic or has too many topics.",
@@ -259,7 +259,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "specificity": {
             "name": "specificity",
             "definition": "Helping the client go from confusion to a clearer understanding of themselves and their environment by expressing feelings, experiences, or behaviors more specifically.",
             "when_to_use": "When the client expresses themselves vaguely or unclearly.",
@@ -278,9 +278,9 @@ techniques_data = {
                 },
             ],
         },
-    ],
-    "insight": [
-        {
+    },
+    "insight": {
+        "interpretation": {
             "name": "interpretation",
             "definition": "The counselor mentions things that the client hasn't clearly realized yet, giving new meaning.",
             "when_to_use": "When the client's problem has been thoroughly explored and the client is ready to hear explanations.",
@@ -295,7 +295,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "confrontation": {
             "name": "confrontation",
             "definition": "Pointing out contradictions in the client's statements or behavior.",
             "when_to_use": "When the client expresses contradictions or self-contradictions.",
@@ -317,8 +317,8 @@ techniques_data = {
                 },
             ],
         },
-        {
-            "name": "self_disclosure",
+        "self_disclosure": {
+            "name": "self-disclosure",
             "definition": "The counselor shares personal experiences or feelings to build trust or provide reference.",
             "when_to_use": "When the client needs to reference others' experiences or feels lonely.",
             "examples": [
@@ -336,7 +336,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "clarification": {
             "name": "clarification",
             "definition": "The counselor tries to get a clearer understanding of what the client is saying or feeling.",
             "when_to_use": "When the client expresses themselves vaguely or unclearly.",
@@ -347,7 +347,7 @@ techniques_data = {
                 }
             ],
         },
-        {
+        "immediacy": {
             "name": "immediacy",
             "definition": "The counselor discusses the relationship between the counselor and the client openly and honestly.",
             "when_to_use": "When the client has doubts or confusion about the counseling process or relationship.",
@@ -362,8 +362,8 @@ techniques_data = {
                 },
             ],
         },
-        {
-            "name": "high_level_empathy",
+        "high_level_empathy": {
+            "name": "high-level empathy",
             "definition": "Pointing out the client's implicit, not fully expressed content and discussing it more deeply.",
             "when_to_use": "In the middle to later stages of counseling when further insight and solutions are needed.",
             "examples": [
@@ -380,10 +380,10 @@ techniques_data = {
                 },
             ],
         },
-    ],
-    "action": [
-        {
-            "name": "providing_information",
+    },
+    "action": {
+        "providing_information": {
+            "name": "providing information",
             "definition": "Providing information, facts, resources, theories, etc., not including giving direct advice.",
             "when_to_use": "When the client needs specific information or facts.",
             "examples": [
@@ -405,8 +405,8 @@ techniques_data = {
                 },
             ],
         },
-        {
-            "name": "direct_guidance",
+        "direct_guidance": {
+            "name": "direct guidance",
             "definition": "The counselor's instructions or guidance to the client during counseling, helping to enhance or facilitate the counseling process.",
             "when_to_use": "When the client needs immediate action advice or guidance.",
             "examples": [
@@ -424,7 +424,7 @@ techniques_data = {
                 },
             ],
         },
-        {
+        "termination": {
             "name": "termination",
             "definition": "Techniques used to end a single session or the entire counseling process.",
             "when_to_use": "When the conversation is about to end or needs to be summarized.",
@@ -437,5 +437,5 @@ techniques_data = {
                 },
             ],
         },
-    ],
+    },
 }

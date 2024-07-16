@@ -11,11 +11,11 @@ class Message(TypedDict):
 class AgentState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], operator.add]
     next: str
-    # conversation: List[Message]
     current_stage: str
-    selected_technique: str
+    selected_intention: str
+    selected_skill: str
     suggestion: str
-    suggestion_reply: str
+    suggest_reply: str
     is_suitable: bool
     feedback: str
     reply: str
@@ -24,11 +24,11 @@ class AgentState(TypedDict):
 state = {
     "messages": [],
     "next": None,
-    # "conversation": [],
     "current_stage": None,
-    "selected_technique": None,
+    "selected_intention": None,
+    "selected_skill": None,
     "suggestion": None,
-    "suggestion_reply": None,
+    "suggest_reply": None,
     "is_suitable": None,
     "feedback": None,
     "reply": None,

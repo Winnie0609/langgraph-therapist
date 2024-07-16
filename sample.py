@@ -13,14 +13,9 @@ sample_conversation = [
         "role": "assistant",
         "content": "You're feeling very confused and worried about your boyfriend's behavior, right? Can you tell me more about what happened? How do you see this situation?",
     },
-    {"role": "user", "content": "Not that much, just find it ridiculous."},
     {
         "role": "user",
-        "content": "I went to hang out and drink with my girlfriends over the weekend but forgot to tell my boyfriend. He thinks that if I don't feel well, why would I go out drinking.",
-    },
-    {
-        "role": "user",
-        "content": "Please give me some approach to fell better right now.",
+        "content": "Not that much, just find it ridiculous.I went to hang out and drink with my girlfriends over the weekend but forgot to tell my boyfriend. He thinks that if I don't feel well, why would I go out drinking.",
     },
     {
         "role": "user",
