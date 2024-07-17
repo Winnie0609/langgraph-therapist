@@ -12,6 +12,7 @@ from prompt import (
 from model import get_open_ai_model
 from intentions import intention_data
 from conversation import conversation_example_data
+from skills import skill_data
 
 
 def log_payload_step(state, name):
@@ -215,7 +216,9 @@ def skill_selector_node(state):
     current_stage = state["current_stage"]
     selected_intention = state["selected_intention"]
     is_suitable = state.get("is_suitable")
-    ref_conversation = conversation_example_data[current_stage]
+    # ref_conversation = conversation_example_data[current_stage]
+    skill_list = skill_data[current_stage]
+    skill_options = list(skill_list.keys())
 
     print("[skill_selector_node current_stage]", current_stage)
     print("[skill_selector_node selected_intention]", selected_intention)
@@ -240,7 +243,8 @@ def skill_selector_node(state):
     ).partial(
         current_stage=(current_stage),
         selected_intention=(selected_intention),
-        ref_conversation=(ref_conversation),
+        skill_list=(str(skill_list)),
+        # ref_conversation=(ref_conversation),
         feedback=(feedback),
         previous_selections=(previous_answer),
     )
@@ -259,7 +263,7 @@ def skill_selector_node(state):
                 },
                 "selected_skill": {
                     "title": "Selected skill",
-                    "type": "string",
+                    "anyOf": [{"type": "string", "enum": skill_options}],
                     "description": "Selected skill to meet the intention",
                 },
                 "suggestion": {
@@ -321,6 +325,8 @@ def reviewer_node(state):
     selected_intention = state["selected_intention"]
     selected_skill = state["selected_skill"]
     suggest_reply = state["suggest_reply"]
+    skill_list = skill_data[current_stage]
+    skill_options = list(skill_list.keys())
 
     print("[reviewer_node current_stage]", current_stage)
     print("[reviewer_node selected_intention]", selected_intention)
@@ -364,6 +370,7 @@ def reviewer_node(state):
         selected_intention=selected_intention,
         selected_skill=selected_skill,
         suggest_reply=suggest_reply,
+        skill_options=skill_options,
     )
 
     agent = (

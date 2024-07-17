@@ -83,18 +83,18 @@ Info:
 - Counseling stage: {current_stage}
 - Intention to reach for helping client: {selected_intention}
 
-Example:
-{ref_conversation}
+Skill list:
+{skill_list}
 
 Instructions:
     1. Analyze the conversation history to understand the client's current emotional and cognitive state.
     2. Review the selected intention to determine the goal for helping the client.
-    3. Select the most appropriate skill that matches the stage, intention, and context of the conversation.
-    6. Generate a response using the selected skill, ensuring it matches the tone and context of the conversation.
-    7. Provide an observation about the client's state based on the conversation.
-    8. Give a professional suggestion on how to use the skill to achieve the intention.
-    9. Create a reply for the user using the selected skill.
-    10. Explain the reason for your skill selection, suggestion, and reply.
+    3. Select the most appropriate skill from the skill list that matches the stage, intention, and context of the conversation.
+    4. Generate a response using the selected skill, ensuring it matches the tone and context of the conversation.
+    5. Provide an observation about the client's state based on the conversation.
+    6. Give a professional suggestion on how to use the skill to achieve the intention.
+    7. Create a reply for the user using the selected skill.
+    8. Explain the reason for your skill selection, suggestion, and reply.
 
 Return your suggestion with these properties: 
     "selected_skill": [Suitable skill to reach intention] "Choose a . e.g.: reflection"
@@ -117,11 +117,13 @@ review_prompt_template = """
 You are a supervisor of a therapist. Be harsh and strict. I will provide you with some conversations and information (from another therapist), please review the if the skill selection and suggestion from the therapist is appropriate and meet the intention and goals. If one of the `selected_skill` and `suggestion` do not meet the `selected_intention`, return false in `is_suitable`.
 
 - Instructions:
-    1. Review the selected skill is suitable to use in current stage.
-    2. Evaluate the selected skill and the suggest reply is match.
-    3. Review the suggest reply is suitable to reply to user without damage.
+    1. Review the selected skill is suitable to use in current stage and is in the skill options.
+    2. Evaluate the selected skill and the suggest reply is matching.
+    3. Review the suggest reply is match the skill and intention.
+    4. Avoid too long reply. Make sure reply as a real person.
 
 Info:
+- skill options: {skill_options}
 - current stage: {current_stage}
 - selected intention: {selected_intention}
 - selected skill: {selected_skill}
